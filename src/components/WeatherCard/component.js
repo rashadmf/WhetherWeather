@@ -5,21 +5,21 @@ import Location from './Location';
 import Condition from './Condition';
 import Graphic from './Graphic';
 
-const WeatherCard = (props) => {
+const WeatherCard = ({temp, city, condition, country}) => {
 
     //-20 to 15 is cold. 15 to 42 is hot. Anything beyond is extreme weather.
     let topColour, bottomColour = 0;
     let backGround = null;
 
-    if(props.temp >= 15)
+    if(temp >= 15)
     {
-        topColour = (1-(props.temp-15)/27)*255;
+        topColour = (1-(temp-15)/27)*255;
         bottomColour = topColour-150;
         backGround = `linear-gradient(
             to top, rgb(255,${topColour},0), rgb(255,${bottomColour},0)
             )`;
-    } else if(props.temp < 15) {
-        topColour = (1-(props.temp+20)/35)*255;
+    } else if(temp < 15) {
+        topColour = (1-(temp+20)/35)*255;
         bottomColour = topColour-150;
         backGround = `linear-gradient(
             to top, rgb(0,${topColour},255), rgb(0,${bottomColour},255)
@@ -40,9 +40,9 @@ const WeatherCard = (props) => {
     `
     return ( 
         <Card>
-            <Location/>
-            <Graphic/>
-            <Condition/>
+            <Location city={city} country={country}/>
+            <Graphic condition={condition}/>
+            <Condition temp={temp} condition={condition}/>
         </Card>
      );
 }
