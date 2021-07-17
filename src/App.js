@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import WeatherCard from './components/WeatherCard/component';
 import './App.css';
+import WeatherGetter from './components/WeatherGetter';
 
 
 function App() {
+
   return (
     <div className="App">
-      <WeatherCard temp={32} condition="Clear" city='Marrakesh' country='MOR'/>
-      <WeatherCard temp={18} condition="Clouds" city='New York' country='USA'/>
-      <WeatherCard temp={3} city='Edmonton' country='CAN'/>
-      <WeatherCard temp={-25} city='Moscow' country='RUS'/>
+      <WeatherGetter location="Toronto,CA"/>
+      <WeatherGetter location="Moscow,RU"/>
+      <WeatherGetter location="Beijing,CN"/>
+      <WeatherGetter location="Barrow,US"/>
     </div>
   );
+  
 }
 
 export default App;
