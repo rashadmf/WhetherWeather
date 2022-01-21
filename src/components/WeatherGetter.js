@@ -57,8 +57,8 @@ const WeatherGetter = ({location}) => {
             city={weather.city} 
             country={weather.country}/>
           <form>
-            <input value={query} onChange={(e)=>setQuery(e.target.value)}/>
-            <button onClick={e => searchAPI(e)}>Search</button>
+            <input class="inputSearch" value={query} onChange={(e)=>setQuery(e.target.value)}/>
+            <button class="searchBtn" onClick={e => searchAPI(e)}>Search</button>
           </form>
         </div>
       ) :loading? (
@@ -66,7 +66,7 @@ const WeatherGetter = ({location}) => {
       ) : !loading && error? (
         <div style={{color: "black"}}>Error encountered!
           <br/>
-          <button onClick={() => setError(false)}>Reset</button>
+          <button class="searchBtn" onClick={() => setError(false)}>Reset</button>
         </div>
       ):null}
     </div>
